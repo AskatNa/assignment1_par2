@@ -12,13 +12,13 @@ const transporter = nodemailer.createTransport({
 const mailOptions = {
     from: process.env.EMAIL,
     to: 'f0997502@gmail.com',
-    subject: 'Тестовое письмо от Nodemailer',
-    text: 'Привет! Это тестовое письмо, отправленное через Nodemailer и Node.js.',
-    html: '<p><b>Привет!</b> Это тестовое письмо, отправленное через <i>Nodemailer</i> и Node.js.</p>',
+    subject: 'Text message from Nodemailer',
+    text: 'Text from Nodemailer.',
+    html: '<p>Hello</p>',
     attachments: [
         {
             filename: 'File.txt',
-            content: 'Это содержание файла File.txt.',
+            content: 'Content of File.txt.',
         },
     ],
 };
@@ -26,9 +26,9 @@ const mailOptions = {
 const sendEmail = async () => {
     try {
         const info = await transporter.sendMail(mailOptions);
-        console.log('Письмо отправлено успешно:', info.response);
+        console.log('Email was sent:', info.response);
     } catch (error) {
-        console.error('Ошибка при отправке письма:', error.message);
+        console.error('Error has occured:', error.message);
     }
 };
 
